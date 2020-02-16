@@ -7,6 +7,7 @@ import pl.akademiakodu.gifs.model.Gif;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 @Data
@@ -16,9 +17,9 @@ public class GifRepository {
             new Gif("android-explosion", "mols", true, 1),
             new Gif("ben-and-mike", "mika", true, 2),
             new Gif("book-dominos", "mem", true, 0),
-            new Gif("compiler-boot", "bot", true, 1),
+            new Gif("compiler-bot", "bot", true, 1),
             new Gif("cowboy-coder", "code", true, 1),
-            new Gif("infinite-andrew", "andrew", true, 2)
+            new Gif("infinite-andrew", "andrew", false, 2)
     );
 
     public String getGifNames() {
@@ -30,4 +31,14 @@ public class GifRepository {
         return result;
     }
 
+    public List<Gif> getGifs() {
+        return ALL_GIFS;
+    }
+
+    public  List<Gif> getFavoriteGifs() {
+        return ALL_GIFS
+                .stream()
+                .filter(x -> x.getFavorite())
+                .collect(Collectors.toList());
+    }
 }
