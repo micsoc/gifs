@@ -2,6 +2,7 @@ package pl.akademiakodu.gifs.repository;
 
 import lombok.Data;
 import org.springframework.stereotype.Repository;
+import pl.akademiakodu.gifs.model.Category;
 import pl.akademiakodu.gifs.model.Gif;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class GifRepository {
         String result = "";
 
         for (Gif gif : ALL_GIFS) {
-            result += gif.getName();
+            result += gif.getName()+" ";
         }
         return result;
     }
@@ -52,5 +53,10 @@ public class GifRepository {
 
         }
         return gifReturn;
+    }
+
+
+    public List<Gif> findByCategoryId(int id) {
+        return ALL_GIFS.stream().filter(x -> x.getCategoryId() == id).collect(Collectors.toList());
     }
 }
