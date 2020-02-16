@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akademiakodu.gifs.model.Category;
 import pl.akademiakodu.gifs.model.Gif;
 import pl.akademiakodu.gifs.repository.CategoryRepository;
@@ -18,6 +17,7 @@ public class CategoryController {
 
     @Autowired
     CategoryRepository categoryRepository;
+
 
     @Autowired
     GifRepository gifRepository;
@@ -40,6 +40,5 @@ public class CategoryController {
         modelMap.put("gifs", gifsInCategory);
 
         return "category";
-
     }
 }

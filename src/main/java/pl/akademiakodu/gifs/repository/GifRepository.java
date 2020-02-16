@@ -2,10 +2,8 @@ package pl.akademiakodu.gifs.repository;
 
 import lombok.Data;
 import org.springframework.stereotype.Repository;
-import pl.akademiakodu.gifs.model.Category;
 import pl.akademiakodu.gifs.model.Gif;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
